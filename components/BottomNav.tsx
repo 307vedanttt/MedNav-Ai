@@ -21,10 +21,10 @@ export default function BottomNav() {
           <Link 
             key={item.href}
             href={item.href}
-            className={`flex flex-col items-center justify-center transition-all duration-300 ease-out px-4 py-1 rounded-xl ${
+            className={`flex flex-col items-center justify-center transition-all duration-300 ease-out px-4 py-2 rounded-xl ${
               isActive 
-                ? 'text-primary bg-gradient-to-br from-primary-container/80 to-secondary-container/80 scale-105' 
-                : 'text-on-surface-variant opacity-70 hover:text-primary hover:opacity-100'
+                ? 'text-white bg-black shadow-lg scale-105' 
+                : 'text-on-surface-variant opacity-70 hover:text-black hover:opacity-100'
             }`}
           >
             <span className="material-symbols-outlined" data-icon={item.icon}>{item.icon}</span>
