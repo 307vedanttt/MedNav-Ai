@@ -1,7 +1,12 @@
 "use client";
 
+<<<<<<< HEAD
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+=======
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+>>>>>>> 7c9800b (commit 2 page ui)
 
 export default function Header() {
   const pathname = usePathname();
@@ -25,6 +30,7 @@ export default function Header() {
             MEDINAV-AI
           </span>
         </Link>
+<<<<<<< HEAD
 
         {/* Nav Links */}
         <div className="hidden md:flex gap-6 items-center">
@@ -53,6 +59,22 @@ export default function Header() {
                       : "w-0 group-hover:w-full"
                   }`}
                 />
+=======
+        <div className="hidden md:flex gap-8 items-center">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link 
+                key={link.name} 
+                href={link.href}
+                className={`font-label text-xs tracking-widest uppercase px-3 py-1 rounded-md transition-colors ${
+                  isActive 
+                    ? 'text-black font-bold hover:bg-black/5' 
+                    : 'text-on-surface-variant font-medium hover:bg-black/5'
+                }`}
+              >
+                {link.name}
+>>>>>>> 7c9800b (commit 2 page ui)
               </Link>
             );
           })}

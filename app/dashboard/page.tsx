@@ -24,17 +24,17 @@ export default function Dashboard() {
             <h1 className="text-xl font-bold tracking-[0.1em] text-primary uppercase font-headline">MEDINAV-AI</h1>
           </Link>
           <div className="flex items-center gap-4">
-            
+
             {/* Notifications Map */}
             <div className="relative">
-              <button 
+              <button
                 onClick={() => { setShowNotifications(!showNotifications); setShowProfileMenu(false); }}
                 className="p-2 rounded-full hover:bg-surface-variant transition-colors cursor-pointer text-on-surface-variant relative"
               >
                 <span className="material-symbols-outlined" data-icon="notifications">notifications</span>
                 <span className="absolute top-1 right-2 w-2 h-2 bg-error rounded-full animate-pulse"></span>
               </button>
-              
+
               {showNotifications && (
                 <div className="absolute right-0 mt-2 w-72 bg-white border border-outline-variant/30 rounded-xl shadow-lg py-2 z-50">
                   <div className="px-4 py-2 border-b border-outline-variant/20 mb-2 font-bold text-on-surface font-headline">
@@ -54,7 +54,7 @@ export default function Dashboard() {
 
             {/* Profile Image & Menu */}
             <div className="relative">
-              <div 
+              <div
                 onClick={() => { setShowProfileMenu(!showProfileMenu); setShowNotifications(false); }}
                 className="w-10 h-10 rounded-full border border-outline-variant/30 overflow-hidden scale-95 active:scale-90 transition-transform cursor-pointer"
               >
@@ -68,12 +68,12 @@ export default function Dashboard() {
               {showProfileMenu && (
                 <div className="absolute right-0 mt-2 w-48 bg-white border border-outline-variant/30 rounded-xl shadow-lg py-2 z-50">
                   <div className="px-4 py-2 border-b border-outline-variant/20 mb-2">
-                    <p className="text-sm font-bold text-on-surface font-headline">Alex</p>
-                    <p className="text-xs text-on-surface-variant">alex@medinav.ai</p>
+                    <p className="text-sm font-bold text-on-surface font-headline">CodeWarriors</p>
+                    <p className="text-xs text-on-surface-variant">codewarriors@medinav.ai</p>
                   </div>
                   <button onClick={() => {
-                     localStorage.removeItem('medai_session_expiry');
-                     window.location.href = '/login';
+                    localStorage.removeItem('medai_session_expiry');
+                    window.location.href = '/login';
                   }} className="w-full text-left px-4 py-2 text-sm text-error hover:bg-error/10 transition-colors font-bold cursor-pointer">
                     Sign Out
                   </button>
@@ -118,7 +118,7 @@ export default function Dashboard() {
 
         {/* Feature Grid (12-column Grid) */}
         <motion.div variants={containerVariants} initial="hidden" animate="show" className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          
+
           {/* Start Symptom Analysis (Takes 8 columns on tablet+) */}
           <motion.div variants={itemVariants} className="md:col-span-8 h-full">
             <Link href="/symptoms" className="h-full bg-white rounded-3xl p-8 border border-outline-variant/30 hover:border-primary/50 shadow-sm hover:shadow-xl transition-all group flex flex-col justify-between relative overflow-hidden">

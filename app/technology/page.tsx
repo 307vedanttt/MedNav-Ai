@@ -24,7 +24,7 @@ export default function TechnologyPage() {
         
         <div className="grid md:grid-cols-2 gap-8 mt-12">
           <div className="glass-panel p-8 rounded-2xl border border-outline-variant/30">
-            <h2 className="text-2xl font-headline font-semibold text-secondary-container mb-4">
+            <h2 className="text-2xl font-headline font-semibold text-on-surface mb-4">
               AI Diagnostics engine
             </h2>
             <p className="text-on-surface-variant">
@@ -32,11 +32,27 @@ export default function TechnologyPage() {
             </p>
           </div>
           <div className="glass-panel p-8 rounded-2xl border border-outline-variant/30">
-            <h2 className="text-2xl font-headline font-semibold text-secondary-container mb-4">
+            <h2 className="text-2xl font-headline font-semibold text-on-surface mb-4">
               Secure Data Processing
             </h2>
             <p className="text-on-surface-variant">
               End-to-end encryption ensures your personal health data remains strictly confidential and secure on our platform.
+            </p>
+          </div>
+          <div className="glass-panel p-8 rounded-2xl border border-outline-variant/30">
+            <h2 className="text-2xl font-headline font-semibold text-on-surface mb-4">
+              Seamless Telemedicine Integration
+            </h2>
+            <p className="text-on-surface-variant">
+              Our WebRTC backbone provides crystal clear, sub-second latency video streaming tailored explicitly for remote clinical assessments.
+            </p>
+          </div>
+          <div className="glass-panel p-8 rounded-2xl border border-outline-variant/30">
+            <h2 className="text-2xl font-headline font-semibold text-on-surface mb-4">
+              Live Biometric Synchronization
+            </h2>
+            <p className="text-on-surface-variant">
+              Automatically bridges and synchronizes wearable device telemetry directly to dispatch hubs during active emergency protocols.
             </p>
           </div>
         </div>

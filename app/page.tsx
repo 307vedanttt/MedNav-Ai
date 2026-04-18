@@ -39,10 +39,7 @@ export default function Home() {
             animate="visible"
             variants={staggerContainer}
           >
-            <motion.div variants={fadeUpVariants} className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-primary/10 border border-primary/20 rounded-full">
-              <span className="material-symbols-outlined text-primary text-sm" data-icon="verified">verified</span>
-              <span className="text-xs font-bold tracking-widest text-primary uppercase">HIPAA Compliant & Certified</span>
-            </motion.div>
+
             
             <motion.h1 variants={fadeUpVariants} className="font-headline text-5xl md:text-7xl font-bold tracking-tight text-on-surface mb-6 leading-[1.1]">
               Intelligent Care.<br />
@@ -84,27 +81,14 @@ export default function Home() {
           >
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-outline-variant/30 bg-white">
               <img 
-                src="https://images.unsplash.com/photo-1576091160550-2173ff9e5ee4?q=80&w=2069&auto=format&fit=crop" 
+                src="/medical_hero.png" 
                 alt="Modern Medical Facility" 
                 className="w-full h-auto object-cover opacity-90"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent"></div>
             </div>
             
-            {/* Floating Trust Badge */}
-            <motion.div 
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.1)] border border-outline-variant/20 z-20 flex items-center gap-4 hidden lg:flex"
-            >
-              <div className="w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center text-secondary">
-                <span className="material-symbols-outlined text-2xl" data-icon="shield">shield</span>
-              </div>
-              <div>
-                <p className="font-bold text-on-surface">Bank-Grade Security</p>
-                <p className="text-xs text-on-surface-variant mt-1">End-to-End Encryption</p>
-              </div>
-            </motion.div>
+
           </motion.div>
         </section>
 
