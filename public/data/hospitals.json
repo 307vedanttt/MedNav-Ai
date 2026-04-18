@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "name": "AIIMS New Delhi",
+    "lat": 28.5662,
+    "lon": 77.2100,
+    "address": "Ansari Nagar, New Delhi",
+    "specialization": "General",
+    "rating": 4.8,
+    "recommended": true
+  },
+  {
+    "id": "2",
+    "name": "Max Super Speciality Hospital",
+    "lat": 28.5283,
+    "lon": 77.2115,
+    "address": "Saket, New Delhi",
+    "specialization": "Cardiology",
+    "rating": 4.5,
+    "recommended": false
+  },
+  {
+    "id": "3",
+    "name": "Fortis Memorial Research Institute",
+    "lat": 28.4485,
+    "lon": 77.0725,
+    "address": "Sector 44, Gurugram",
+    "specialization": "Trauma",
+    "rating": 4.6,
+    "recommended": false
+  },
+  {
+    "id": "4",
+    "name": "Medanta - The Medicity",
+    "lat": 28.4312,
+    "lon": 77.0423,
+    "address": "Sector 38, Gurugram",
+    "specialization": "Cardiology",
+    "rating": 4.7,
+    "recommended": true
+  }
+]
