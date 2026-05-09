@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from 'react';
 import BottomNav from "@/components/BottomNav";
 import Link from 'next/link';
@@ -78,7 +79,7 @@ export default function Dashboard() {
               setShowProfileMenu(!showProfileMenu);
               setShowNotifications(false);
             }} className="w-10 h-10 rounded-full border border-outline-variant/30 overflow-hidden scale-95 active:scale-90 transition-transform cursor-pointer">
-                <img alt="User Profile Avatar" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHELnBHwVwDB236CQTcJVmcK_b8j9-uzq3mwvb9nAhHEhPvdEzsUJY4CMDsFWQK6ZEciSL-ZtiQn--OgE3ncecvw5kBuwS7ijfwLPy6eElrVlNMz4jliVGV8itfCOXbTLw83YiN-OYPDS0091zhiaj9I4t2sysfl8kYcj1XGq_1wF8X2dhPfFmH72lrgKnrC78selo051gy8WVNqLVw9WYNSx-7F-RqpvaKH2S9JIXsdC4n_PyDwCLRGh7bsxHPMMFSihF_hnxY7I" />
+                <Image alt="User Profile Avatar" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHELnBHwVwDB236CQTcJVmcK_b8j9-uzq3mwvb9nAhHEhPvdEzsUJY4CMDsFWQK6ZEciSL-ZtiQn--OgE3ncecvw5kBuwS7ijfwLPy6eElrVlNMz4jliVGV8itfCOXbTLw83YiN-OYPDS0091zhiaj9I4t2sysfl8kYcj1XGq_1wF8X2dhPfFmH72lrgKnrC78selo051gy8WVNqLVw9WYNSx-7F-RqpvaKH2S9JIXsdC4n_PyDwCLRGh7bsxHPMMFSihF_hnxY7I"  width={400} height={400} />
               </div>
 
               {showProfileMenu && <div className="absolute right-0 mt-2 w-48 bg-white border border-outline-variant/30 rounded-xl shadow-lg py-2 z-50">

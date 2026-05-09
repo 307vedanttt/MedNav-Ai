@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
@@ -107,7 +108,7 @@ export default function Pharmacy() {
                 <div className="w-2 h-2 rounded-full bg-primary animate-ping"></div>
               </div>
               <div className="h-64 relative bg-surface-container-low">
-                <img className="w-full h-full object-cover opacity-40 mix-blend-screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpRnZEIL_hsYusXKMK_hbQa523QW0kVBGUI-EivW0SdAp5E6wMSO4EhgU9-SmaLW0cHlXjB2ZlPJkuLgF5HXYNIxK8_qonxIvthmPKXPr-TZcKF9ugXBkdrmI8-xCwgQaI0BbZcyCexzSjtjgonbZP1jjAeNcvWaq0FejiUSFhp9I3rhnVCKFdIZHnhCn7QY-ZNdE7PgST1KBeZgrIJQHS07L7oP0bR48RBOYZu7dRoFt-bH7m7iLmImlaBij9wr5VD-KFT9GeeFE" alt="map" />
+                <Image className="w-full h-full object-cover opacity-40 mix-blend-screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpRnZEIL_hsYusXKMK_hbQa523QW0kVBGUI-EivW0SdAp5E6wMSO4EhgU9-SmaLW0cHlXjB2ZlPJkuLgF5HXYNIxK8_qonxIvthmPKXPr-TZcKF9ugXBkdrmI8-xCwgQaI0BbZcyCexzSjtjgonbZP1jjAeNcvWaq0FejiUSFhp9I3rhnVCKFdIZHnhCn7QY-ZNdE7PgST1KBeZgrIJQHS07L7oP0bR48RBOYZu7dRoFt-bH7m7iLmImlaBij9wr5VD-KFT9GeeFE" alt="map"  width={400} height={400} />
                 
                 {/* Mock animated drone */}
                 <motion.div initial={{

@@ -3,6 +3,7 @@
 import Header from "@/components/Header";
 import BottomNav from "@/components/BottomNav";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 export default function Home() {
   const fadeUpVariants = {
@@ -95,7 +96,7 @@ export default function Home() {
           bounce: 0.4
         }}>
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-outline-variant/30 bg-white">
-              <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80" alt="Doctor utilizing an intelligent tablet interface" className="w-full h-[500px] object-cover object-center opacity-90" />
+              <Image src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80" alt="Doctor utilizing an intelligent tablet interface" width={1200} height={500} className="w-full h-[500px] object-cover object-center opacity-90" />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/10"></div>
             </div>
             

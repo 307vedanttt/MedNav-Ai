@@ -2,14 +2,24 @@ import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import prisma from '@/lib/prisma';
 
-// Helper to determine specialty (mimicking AI backend logic)
-function determineSpecialty(text) {
+// Helper to determine risk level and specialty
+function analyzeSymptoms(text) {
   const lowercaseInput = text.toLowerCase();
-  if (lowercaseInput.includes("heart") || lowercaseInput.includes("chest") || lowercaseInput.includes("breath") || lowercaseInput.includes("palpitation")) return "Cardiology";
-  if (lowercaseInput.includes("stomach") || lowercaseInput.includes("belly") || lowercaseInput.includes("digest")) return "Gastroenterology";
-  if (lowercaseInput.includes("head") || lowercaseInput.includes("dizzy") || lowercaseInput.includes("migraine") || lowercaseInput.includes("faint")) return "Neurology";
-  if (lowercaseInput.includes("bone") || lowercaseInput.includes("joint") || lowercaseInput.includes("fracture") || lowercaseInput.includes("break") || lowercaseInput.includes("arm") || lowercaseInput.includes("leg")) return "Orthopedics";
-  return "General";
+  
+  // HIGH RISK - Requires SOS/Emergency
+  const highRiskKeywords = ["chest pain", "heart attack", "breath", "unconscious", "stroke", "bleeding", "fracture", "seizure"];
+  const isHighRisk = highRiskKeywords.some(keyword => lowercaseInput.includes(keyword));
+
+  let specialty = "General";
+  if (lowercaseInput.includes("heart") || lowercaseInput.includes("chest") || lowercaseInput.includes("breath") || lowercaseInput.includes("palpitation")) specialty = "Cardiology";
+  else if (lowercaseInput.includes("stomach") || lowercaseInput.includes("belly") || lowercaseInput.includes("digest")) specialty = "Gastroenterology";
+  else if (lowercaseInput.includes("head") || lowercaseInput.includes("dizzy") || lowercaseInput.includes("migraine") || lowercaseInput.includes("faint")) specialty = "Neurology";
+  else if (lowercaseInput.includes("bone") || lowercaseInput.includes("joint") || lowercaseInput.includes("fracture") || lowercaseInput.includes("break") || lowercaseInput.includes("arm") || lowercaseInput.includes("leg")) specialty = "Orthopedics";
+
+  return {
+    specialty,
+    riskLevel: isHighRisk ? "High" : (specialty !== "General" ? "Moderate" : "Low")
+  };
 }
 
 export async function POST(request) {
@@ -27,8 +37,8 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Symptom text is required' }, { status: 400 });
     }
 
-    const specialty = determineSpecialty(symptom);
-    const severity = specialty !== "General" ? "High" : "Moderate";
+    const { specialty, riskLevel } = analyzeSymptoms(symptom);
+    const severity = riskLevel;
 
     const historyEntry = await prisma.symptomHistory.create({
       data: {

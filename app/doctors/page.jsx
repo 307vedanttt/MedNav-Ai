@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 import Header from "@/components/Header";
 import BottomNav from "@/components/BottomNav";
@@ -222,7 +223,7 @@ export default function NearbyDoctors() {
           <div className="lg:col-span-4 space-y-6">
             <div className="glass-panel rounded-xl border border-outline-variant/15 overflow-hidden h-[500px] relative">
               <div className="absolute inset-0 bg-surface-container-low opacity-50"></div>
-              <img className="w-full h-full object-cover" alt="map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpRnZEIL_hsYusXKMK_hbQa523QW0kVBGUI-EivW0SdAp5E6wMSO4EhgU9-SmaLW0cHlXjB2ZlPJkuLgF5HXYNIxK8_qonxIvthmPKXPr-TZcKF9ugXBkdrmI8-xCwgQaI0BbZcyCexzSjtjgonbZP1jjAeNcvWaq0FejiUSFhp9I3rhnVCKFdIZHnhCn7QY-ZNdE7PgST1KBeZgrIJQHS07L7oP0bR48RBOYZu7dRoFt-bH7m7iLmImlaBij9wr5VD-KFT9GeeFE" />
+              <Image className="w-full h-full object-cover" alt="map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpRnZEIL_hsYusXKMK_hbQa523QW0kVBGUI-EivW0SdAp5E6wMSO4EhgU9-SmaLW0cHlXjB2ZlPJkuLgF5HXYNIxK8_qonxIvthmPKXPr-TZcKF9ugXBkdrmI8-xCwgQaI0BbZcyCexzSjtjgonbZP1jjAeNcvWaq0FejiUSFhp9I3rhnVCKFdIZHnhCn7QY-ZNdE7PgST1KBeZgrIJQHS07L7oP0bR48RBOYZu7dRoFt-bH7m7iLmImlaBij9wr5VD-KFT9GeeFE"  width={400} height={400} />
               {/* Floating Map Overlay */}
               <div className="absolute top-4 left-4 right-4 glass-panel p-4 rounded-lg border border-primary-container/20 flex items-center justify-between">
                 <div>
@@ -263,7 +264,7 @@ export default function NearbyDoctors() {
                         <div className="flex flex-col md:flex-row gap-6">
                           <div className="relative">
                             <div className="w-full md:w-32 h-40 rounded-xl overflow-hidden border border-outline-variant/15">
-                              <img alt="Doctor Profile" className="w-full h-full object-cover" src={doc.image} />
+                              <Image alt="Doctor Profile" className="w-full h-full object-cover" src={doc.image}  width={400} height={400} />
                             </div>
                           </div>
                           <div className="flex-1 flex flex-col justify-between">
@@ -316,7 +317,7 @@ export default function NearbyDoctors() {
                       <div className="flex gap-4">
                         <div className="relative shrink-0">
                           <div className="w-20 h-20 rounded-xl overflow-hidden border border-outline-variant/15">
-                            <img alt="Doctor Profile" className="w-full h-full object-cover" src={doc.image} />
+                            <Image alt="Doctor Profile" className="w-full h-full object-cover" src={doc.image}  width={400} height={400} />
                           </div>
                           <div className="absolute -bottom-2 -right-2 bg-surface-container-highest px-2 py-0.5 rounded border border-outline-variant/20 flex items-center gap-1">
                             <span className="material-symbols-outlined text-yellow-400 text-xs" data-icon="star">star</span>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -77,7 +78,7 @@ export default function BookCall() {
 
         {/* Doctor Identity */}
         <div className="glass-panel p-6 rounded-2xl border border-outline-variant/15 mb-8 flex flex-col md:flex-row gap-6 items-center">
-          <img alt="Doctor" className="w-24 h-24 rounded-full border border-primary/30 shadow-[0_0_20px_rgba(0,229,255,0.2)] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqEpPzs5hOrPRel9fgqwsOhfz0Th_DNRwwy_nBwztTaDZn9WJW06VFmHLLKBxWyWoGeySfz-8y7Cqsd7DssTtLDeS695d4LH3pK9R4M7wHHsIZ-3F_1mVtJ12TCw3Zzlcpbypq9P3oJWQ_u7ZECjbr1YFtFqQO1bqYSiGNJ6MXwoNzGdGyr1HblLMolEfiG5rWFtjZ1pDoSHLNnzkD0AczDMMlikm58sdx74PL8iYvIGXAfnSb0iRzombQpLH_MqSYB4K5eQTJe8Q" />
+          <Image alt="Doctor" className="w-24 h-24 rounded-full border border-primary/30 shadow-[0_0_20px_rgba(0,229,255,0.2)] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqEpPzs5hOrPRel9fgqwsOhfz0Th_DNRwwy_nBwztTaDZn9WJW06VFmHLLKBxWyWoGeySfz-8y7Cqsd7DssTtLDeS695d4LH3pK9R4M7wHHsIZ-3F_1mVtJ12TCw3Zzlcpbypq9P3oJWQ_u7ZECjbr1YFtFqQO1bqYSiGNJ6MXwoNzGdGyr1HblLMolEfiG5rWFtjZ1pDoSHLNnzkD0AczDMMlikm58sdx74PL8iYvIGXAfnSb0iRzombQpLH_MqSYB4K5eQTJe8Q"  width={400} height={400} />
           <div className="flex-1 text-center md:text-left">
             <h3 className="font-headline text-2xl font-bold text-on-surface">Dr. Elena Vance</h3>
             <p className="font-label text-xs uppercase tracking-[0.1em] text-on-surface-variant mb-2">Senior Cardiologist</p>

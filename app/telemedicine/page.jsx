@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
@@ -84,18 +85,27 @@ export default function Telemedicine() {
     const utterance = new SpeechSynthesisUtterance(text);
     
     const voices = window.speechSynthesis.getVoices();
-    const preferredVoice = voices.find(v => 
-      v.name.includes('Samantha') || 
-      v.name.includes('Google US English') ||
-      v.name.includes('Microsoft Zira') || 
-      (v.name.includes('Female') && v.lang.includes('en'))
-    ) || voices.find(v => v.lang.includes('en')) || voices[0];
+    
+    // Priority list for Indian English (en-IN) voices
+    const preferredVoice = voices.find(v => v.lang === 'en-IN') || 
+                          voices.find(v => v.name.includes('India')) || 
+                          voices.find(v => v.name.includes('Neerja')) || 
+                          voices.find(v => v.name.includes('Heera')) ||
+                          voices.find(v => v.name.includes('Rishi')) ||
+                          voices.find(v => v.name.includes('Isha')) ||
+                          voices.find(v => v.name.includes('Google US English')) || 
+                          voices.find(v => v.name.includes('Samantha')) ||
+                          voices.find(v => v.lang.includes('en')) || 
+                          voices[0];
     
     if (preferredVoice) {
       utterance.voice = preferredVoice;
+      utterance.lang = preferredVoice.lang; // Ensure lang matches the voice
     }
-    utterance.rate = 1.0;
-    utterance.pitch = 1.1; // Slightly higher pitch for female voice
+    
+    // 0.95 rate is slightly slower and more "doctor-like" / professional
+    utterance.rate = 0.95; 
+    utterance.pitch = 1.0; 
     
     utterance.onend = () => {
       setAiState("listening");
@@ -157,7 +167,9 @@ export default function Telemedicine() {
     };
 
     recognition.onerror = (event) => {
-      console.error("Speech recognition error", event.error);
+      if (event.error !== 'no-speech' && event.error !== 'network') {
+        console.error("Speech recognition error", event.error);
+      }
       setIsListeningVoice(false);
     };
 
@@ -213,7 +225,7 @@ export default function Telemedicine() {
         
         {/* PiP Patient Webcam Mockup */}
         <div className="hidden md:block w-24 h-32 bg-gray-800 rounded-xl overflow-hidden border border-white/20 shadow-xl relative">
-           <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" alt="You" className="w-full h-full object-cover grayscale opacity-80" />
+           <Image src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" alt="You" className="w-full h-full object-cover grayscale opacity-80"  width={400} height={400} />
            <div className="absolute bottom-1 left-1 text-[8px] bg-black/50 px-1.5 py-0.5 rounded text-white/80 font-bold tracking-widest uppercase">You</div>
         </div>
       </header>

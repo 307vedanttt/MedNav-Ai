@@ -7,7 +7,8 @@ import { useNetwork } from "@/hooks/useNetwork";
 import { motion } from "framer-motion";
 import { fetchNearbyHospitals } from "@/lib/overpass";
 import { fetchRoute } from "@/lib/osrm";
-import LeafletMap from "@/components/LeafletMap";
+import dynamic from "next/dynamic";
+const LeafletMap = dynamic(() => import("@/components/LeafletMap"), { ssr: false });
 import HospitalList from "@/components/HospitalList";
 export default function EmergencySOS() {
   const [isDispatching, setIsDispatching] = useState(false);
@@ -185,7 +186,7 @@ export default function EmergencySOS() {
     if (isDispatching) return;
     setIsDispatching(true);
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+       
       const AudioContext = window.AudioContext || window.webkitAudioContext;
       const ctx = new AudioContext();
       const osc = ctx.createOscillator();

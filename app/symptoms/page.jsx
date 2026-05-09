@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import Header from "@/components/Header";
 import BottomNav from "@/components/BottomNav";
@@ -50,18 +51,18 @@ export default function SymptomsAnalysis() {
         throw new Error(data.error || "Failed to analyze symptoms");
       }
 
-      const { specialty } = data.analysis;
+      const { specialty, severity } = data.analysis;
       
       localStorage.setItem("userSymptoms", text);
       localStorage.setItem("requiredSpecialty", specialty);
 
-      if (specialty !== "General") {
+      if (severity === "High") {
         router.push("/emergency");
       } else {
         setMessages(prev => [...prev, {
           id: Date.now() + 1,
           role: "assistant",
-          text: "Analysis complete. I've cross-referenced your symptoms and geospatial location. Displaying Priority Medical Centers and leading Specialists available right now for immediate consultation."
+          text: "Analysis complete. Based on your symptoms, I recommend consulting a specialist. Displaying verified medical centers and doctors available for you right now."
         }]);
         setShowRecommendations(true);
       }
@@ -100,7 +101,9 @@ export default function SymptomsAnalysis() {
         processSymptom(transcript);
       };
       recognition.onerror = event => {
-        console.error("Voice Protocol Error:", event.error);
+        if (event.error !== 'no-speech' && event.error !== 'network') {
+          console.error("Voice Protocol Error:", event.error);
+        }
         setIsListening(false);
       };
       recognition.onend = () => {
@@ -216,7 +219,7 @@ export default function SymptomsAnalysis() {
                       {/* Top Doctor Focus */}
                       <Link href="/doctors" className="glass-panel p-5 rounded-xl border border-primary/20 hover:border-primary/50 transition-all block cursor-pointer">
                         <div className="flex gap-4 items-center">
-                          <img alt="Doctor Profile" className="w-16 h-16 rounded-xl object-cover border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqEpPzs5hOrPRel9fgqwsOhfz0Th_DNRwwy_nBwztTaDZn9WJW06VFmHLLKBxWyWoGeySfz-8y7Cqsd7DssTtLDeS695d4LH3pK9R4M7wHHsIZ-3F_1mVtJ12TCw3Zzlcpbypq9P3oJWQ_u7ZECjbr1YFtFqQO1bqYSiGNJ6MXwoNzGdGyr1HblLMolEfiG5rWFtjZ1pDoSHLNnzkD0AczDMMlikm58sdx74PL8iYvIGXAfnSb0iRzombQpLH_MqSYB4K5eQTJe8Q" />
+                          <Image alt="Doctor Profile" className="w-16 h-16 rounded-xl object-cover border border-outline-variant/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqEpPzs5hOrPRel9fgqwsOhfz0Th_DNRwwy_nBwztTaDZn9WJW06VFmHLLKBxWyWoGeySfz-8y7Cqsd7DssTtLDeS695d4LH3pK9R4M7wHHsIZ-3F_1mVtJ12TCw3Zzlcpbypq9P3oJWQ_u7ZECjbr1YFtFqQO1bqYSiGNJ6MXwoNzGdGyr1HblLMolEfiG5rWFtjZ1pDoSHLNnzkD0AczDMMlikm58sdx74PL8iYvIGXAfnSb0iRzombQpLH_MqSYB4K5eQTJe8Q"  width={400} height={400} />
                           <div className="flex-1">
                             <h3 className="font-headline font-bold text-lg text-on-surface">Dr. Elena Vance</h3>
                             <p className="font-label text-[10px] uppercase tracking-[0.1em] text-on-surface-variant">Senior Cardiologist</p>
