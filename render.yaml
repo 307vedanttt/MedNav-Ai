@@ -4,12 +4,8 @@ services:
     env: node
     buildCommand: npm install && npm run build
     startCommand: npx prisma db push --accept-data-loss && npm run start
-    disk:
-      name: mednav-data
-      mountPath: /data
-      sizeGB: 1
     envVars:
       - key: DATABASE_URL
-        value: file:/data/prod.db
+        value: file:./dev.db
       - key: NODE_ENV
         value: production
